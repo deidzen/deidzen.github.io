@@ -1,0 +1,47 @@
+@import "/layout/css/styles.css";
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    height: 330px;
+    width: 280px;
+    padding: 20px;
+    align-items: center;
+    margin: 25vh auto;
+    justify-content: space-around;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background-color: var(--form-bg-color);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+}
+
+.register-form input {
+    font-size: 14px;
+    padding: 15px;
+    border: 0;
+    width: 100%;
+    max-width: 250px;
+    background-color: var(--bg-color);
+}
+
+.register-form input:hover {
+    background-color: var(--bg-color-darker);
+}
+
+.register-form input[type="submit"] {
+    max-width: none;
+    cursor: pointer;
+    color: var(--font-secondary-color);
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+.register-form input[type="submit"]:hover {
+    background-color: var(--darker);
+}
+
+.register-a {
+    text-decoration: none;
+    color: var(--primary-color);
+}

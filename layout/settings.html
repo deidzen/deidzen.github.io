@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="title" data-title="Settings | Chat">Settings | Chat</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Alexey Lagun">
+        <meta name="description" content="Yet another chat application">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/header.css">
+        <link rel="stylesheet" type="text/css" href="css/settings.css">
+        <script src="https://kit.fontawesome.com/1fa35d6678.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <a href="/layout/login.html" id="logo">Chat</a>
+            <nav>
+                <a href="#"><i class="far fa-moon"></i></a>
+                <a href="#"><i class="fas fa-plus-circle"></i></a>
+                <a href="#"><i class="fas fa-user-cog"></i></a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i></a>
+            </nav>
+        </header>
+        <main>
+            <form class="settings-form" method="POST">
+                <img class="user-avatar" src="images/default-avatar.png">
+                <input type="text" placeholder="new nickname" name="nickname" value="Alex" required />
+                <input type="file" name="file" class="inputfile" accept="image/*"/>
+                <input type="submit" value="APPLY CHANGES">
+            </form>
+        </main>
+    </body>
+</html>

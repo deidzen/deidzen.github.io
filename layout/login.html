@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="title" data-title="Login | Chat">Login | Chat</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Alexey Lagun">
+        <meta name="description" content="Yet another chat application">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/header.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <script src="https://kit.fontawesome.com/1fa35d6678.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <a href="/layout/login.html" id="logo">Chat</a>
+            <nav>
+                <a href="#"><i class="far fa-moon"></i></a>
+                <a href="#"><i class="fas fa-plus-circle"></i></a>
+                <a href="#"><i class="fas fa-user-cog"></i></a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i></a>
+            </nav>
+        </header>
+        <main>
+            <form class="login-form" method="POST">
+                <input type="text" placeholder="login" name="login" required />
+                <input type="password" placeholder="password" name="password" maxlength="30" required />
+                <input type="submit" value="LOGIN">
+                <a class="login-a" href="register.html">Create an account</a>
+            </form>
+        </main>
+    </body>
+</html>
