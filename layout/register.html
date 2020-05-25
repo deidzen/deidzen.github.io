@@ -22,12 +22,12 @@
             </nav>
         </header>
         <main>
-            <form class="register-form" method="POST">
-                <input type="text" placeholder="login" name="login" required />
-                <input type="password" placeholder="password" name="password" maxlength="30" required />
-                <input type="password" placeholder="confirm password" name="confirm" maxlength="30" required />
-                <input type="text" placeholder="nickname" name="nickname" required />
-                <input type="submit" value="REGISTER">
+            <form class="register-form" id="register-form" method="POST">
+                <input type="text" placeholder="login" name="login" id="login" maxlength="30" required />
+                <input type="password" placeholder="password" name="password" id="password" maxlength="30" required />
+                <input type="password" placeholder="confirm password" name="confirm" id="confirm" maxlength="30" required />
+                <input type="text" placeholder="nickname" name="nickname" id="nickname" maxlength="30" required />
+                <input type="submit" id="register-btn" value="REGISTER">
                 <p>
                     Registered? Just
                     <a class="register-a" href="login.html">login</a>
