@@ -14,7 +14,7 @@ const routes = {
     '/register' : Register,
     '/settings' : Settings,
     '/chat' : Chat,
-    // '/chat/:id' : Chat,
+    '/chat/:id' : Chat,
     '/add-chat' : AddChat
 };
 
@@ -35,23 +35,36 @@ const router = async () => {
     // If the parsed URL is not in our list of supported routes, select the 404 page instead
     let page = routes[parsedURL] ? routes[parsedURL] : Error404;
     
-    
-    // if(page == Portfolio) {
-    //     db.ref('crosswords').once('value', function(snapshot) {
-    //         all.push(snapshot.val());
-    //         content.innerHTML = page.render(all, user);
-    //     });
-    //     page.afterRender();
-    // } else if (page == Constructor) {
-    //     content.innerHTML = await page.render(user);
-    //     await page.afterRender();
-    // } else if(page == Answers) {
-    //     db.ref('crosswords/' + request.id).once('value', function(snapshot) {
-    //         content.innerHTML = page.render(snapshot.val().answers);
-    //     });
-    //     await page.afterRender();
-    // } else {
-    if (page == Login) {
+    if (page === Chat) {
+        if (firebase.auth().currentUser) {
+            body.innerHTML = await page.render(); 
+            // await page.afterRender();
+            await page.afterRender(Number.parseInt(request.id));
+        } else {
+            body.innerHTML = await Login.render();
+            window.location.hash = '/';
+            await Login.afterRender();
+        }
+    } else if (page === Settings) {
+        if (firebase.auth().currentUser) {
+            body.innerHTML = await page.render(); 
+            await page.afterRender();
+        } else {
+            body.innerHTML = await Login.render();
+            window.location.hash = '/';
+            await Login.afterRender();
+        }
+    } else if (page === AddChat) {
+        if (firebase.auth().currentUser) {
+            body.innerHTML = await page.render(); 
+            await page.afterRender();
+        } else {
+            body.innerHTML = await Login.render();
+            window.location.hash = '/';
+            await Login.afterRender();
+        }
+    }
+    else if (page === Login) {
         body.innerHTML = await page.render(); 
         await page.afterRender();
     } else {
@@ -65,7 +78,9 @@ const router = async () => {
 window.addEventListener('hashchange', router);
 
 // Listen on page load:
+
 window.addEventListener('DOMContentLoaded', () => {
+    
     auth.onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
             user = firebaseUser.email;
@@ -73,7 +88,7 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             window.location.hash = '/';
         }
-        router();
+        // router();
     });    
     
 });

@@ -260,8 +260,6 @@
     .chat-window--active {
       display: flex;
       flex-direction: column;
-      width: 340px;
-      height: 550px;
       border-bottom-left-radius: 10px;
     }
     .chat-window__back-button {
@@ -279,10 +277,6 @@
   
     .chats-container--hidden {
       display: none;
-    }
-
-    .chat-message-text {
-        max-width: 200px;
     }
 }
 

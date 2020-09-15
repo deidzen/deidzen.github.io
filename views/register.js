@@ -1,4 +1,4 @@
-
+import * as database from './../services/database.js';
 
 let Register = {
     render: async() => {
@@ -29,7 +29,6 @@ let Register = {
 
     afterRender: async() => {
         window.location.hash = '/register';
-        const registerBtn = document.querySelector('#register-btn');
         const regForm = document.querySelector('#register-form');
         let isSuccessful = true;
 
@@ -38,15 +37,25 @@ let Register = {
             const email = regForm['email'].value;
             const password = regForm['password'].value;
             const confirm = regForm['confirm'].value;
+            const nickname = regForm['nickname'].value;
             if (password !== confirm) {
                 alert('Passwords are not equal');
-            } else if (email === '' | password === '' | confirm === '') {
+            } else if (email === '' | password === '' | confirm === '' | nickname === '') {
                 alert('Fields can\'t be empty');
             } else {
                 const promise = auth.createUserWithEmailAndPassword(email, password);
-                promise.catch(e => {
-                    alert(e.message);
-                    isSuccessful = false;
+                promise
+                    .then(async function (newUser) {
+                        let uid = newUser.user.uid;
+                        
+                        db.ref('/users/' + uid).set({
+                            nickname: nickname,
+                            email: email
+                        });
+                    })
+                    .catch(e => {
+                        alert(e.message);
+                        isSuccessful = false;
                 });
             }
             if (isSuccessful) {
